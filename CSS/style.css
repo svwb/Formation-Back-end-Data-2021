@@ -1,0 +1,276 @@
+/* MISE EN FORME GENERALE */
+*{ /*Ici je supprime les marges int et ext mises par défaut lors de la création d'une page web*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*Je fais en sorte que mes futurs padding ne modifient pas la taille du parent*/
+}
+
+
+/* MISE EN FORME DU CONTENU VISIBLE PAR LUTILISATEUR */
+body {
+    background-color: rgb(245, 245, 245);
+    color: #333;
+    /* font-family: 'Roboto',Arial, Verdana, sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    line-height: 1.25;
+}
+
+/* TOUTES LES IMAGES - ON FAIT EN SORTE QUE LES IMAGES SOIENT RESPONSIVES */
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+/* MISE EN PLACE DE LENTETE */
+header{
+    color: white;
+    background-color: rgba(163, 203, 77, .9);
+    padding-bottom: 1px;
+}
+
+
+
+/* BANNER */
+header div {
+    border: 1px solid black;
+    height: 25vh;
+    background-image: url(../img/banner-01.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw auto; /*La largeur de ma banner va être de 100% de la valeur de la largeur de la fenetre, et la hauteur sera calculée automatiquement */
+    background-position: center; /*Je fais en sorte que lors des étirements de mon bg, le centre de l'image soit toujours visible*/
+}
+
+
+
+/* CENTRER LE CONTENU TEXTUEL DE NOTRE UL(NAV) */
+header ul {
+    text-align: center; /* Je centre le contenu de ma liste à puce (mes liens de nav) */
+}
+
+
+/* ELEMENTS DE NAVIGATION ALIGNE LES UNS A COTE DES AUTRES */
+header nav li {
+    margin: 12px;
+    list-style: none; /*Je retire les puces de mes list items*/
+    display: inline-block; /*Je fais en sorte que mes listes de types block, se comporte comme des éléments de type inline (L'une à côté de l'autre)*/
+}
+
+
+/* MISE EN FORME DES ELEMENTS DE NAVIGATION */
+header nav li a {
+    font-size: 1.4em; /*La taille de la police par défaut du navigateur fois 1.4*/
+    font-weight: 600; /*le gras de la police*/
+    padding: 7px; /*marges intérieurs*/
+    color: rgb(255,255,255);
+}
+
+
+/* TRANSITION HOVER */
+header nav li a:hover {
+    color: rgb(186, 247, 54);
+    background-color: rgba(0,0,0,.5);
+    transition: 2s; /*Durée de la transition pour que mon :hover soit fait*/
+}
+
+/* PLACE UNE MARGE EN DESSOUS DE CHAQUE PARAGRAPHE */
+p{
+    margin-bottom: 12px;
+}
+
+/* CENTRE LE CONTENU DU MAIN */
+main{
+    padding: 24px 18px;
+    max-width: 1024px; /*taille maximum de notre main (la partie principale de notre site)*/
+    margin: 0 auto; /*je ne mets 0px de marge sur la hauteur, et je mets les marges automatique en largeur(responsive)*/
+    background-color: rgb(235,235,235);
+}
+
+/* METS EN FORME LE H1 DU MAIN*/
+main h1 {
+    color: #214567;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed #214567; /*bordure avec des traits*/
+    font-size: 2.6em;
+    font-weight: 800;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* METS EN FORME LE H2 DU MAIN*/
+main h2 {
+    font-size: 1.6em;
+    font-weight: 300;
+    margin-bottom: 18px;
+    color: #fff;
+    background-color: #214567;
+    padding: 7px;
+}
+
+/* METS EN FORME LE H3 DU MAIN*/
+main h3{
+    font-size: 1.6em;
+    margin-bottom: 12px;
+}
+
+/* RAJOUTE DES MARGES INT ET EXT SUR LES ARTICLES DU MAIN*/
+main article{
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+}
+
+/* JUSTIFIE LE CONTENU TEXTUEL DES PARAGRAPHES DU MAIN */
+main p{
+    text-align: justify;  /*je fais en sorte que mon texte soit étiré sur sa longueur pour combler les fin de lignes*/
+}
+
+/* MISE EN FORME DE LA LEGENDE DES IMAGES */
+main figure {
+    margin-bottom : 12px;
+}
+
+/* MISE EN FORME DE LA LEGENDE DES IMAGES */
+main figcaption {
+    color: rgb(242,242,242);
+    background-color: #383b3f;
+    padding: 7px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+
+/* PARTIE FOOTER */
+/* METS EN FORME LE FOOTER D'UNE FACON GENERALE */
+footer {
+    color: rgb(217,217,217);
+    background-color: rgb(64,64,64);
+    padding: 24px 18px;
+    text-align: center;
+}
+
+/* METS EN FORME LE H3 DU FOOTER */
+footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    color: white;
+}
+
+/* PERMET DE SOULIGNER N'IMPORTE QUEL ELEMENT QUI DISPOSE DE CETTE CLASSE */
+.souligne{
+    text-decoration: underline;
+}
+
+/* PERMET DE METTRE EN MAJ N'IMPORTE QUEL ELEMENT QUI DISPOSE DE CETTE CLASSE */
+.majuscule {
+    text-transform: uppercase;
+}
+
+
+
+/* PARTIE RESPONSIVE */
+/* SI LA TAILLE DE MA FENETRE EST PLUS GRANDE QUE 780PX */
+@media screen and (min-width: 780px) {
+    .flexing {
+        display: flex; /*Je rend le contenu flottant (flex-box)*/
+    }
+    
+    #gallery{
+        justify-content: space-between; /*Je crée de l'espace entre le contneu (flex-box)*/
+        flex-wrap: wrap; /*Je fais un retour à la ligne quand mon élément parent est trop petit pour tout contenir(flex-box)*/
+    } 
+    
+    #gallery figure {
+        width: 47.5%; /*La largeur de chaque figure sera adaptée à son parent*/
+    }
+}
+
+
+
+
+
+/* PAGE CONTACT */
+/* PARTIE TABLEAU */
+
+table {
+    width: auto;
+    text-align: center;
+    margin: 100px auto; /*Je centre mon tableau par rapport à son parent en lui créant des marges automatique*/
+    box-shadow: 0 5px 50px rgba(0, 0, 0, .15);
+    border-bottom: 2px solid rgba(163, 203, 77, .9);
+    border-collapse: collapse; /*Je supprime les bordures mises par défaut dans mon tableau*/
+}
+
+thead tr { 
+    background-color: rgba(163, 203, 77, .9);
+}
+
+th, td { /* Je crée des marges intérieurs pour créer de l'espace dans chaque th et td */
+    padding: 15px 20px;
+}
+
+.overflow { /*Je crée une barre de défilement inférieur pour que mon tableau puisse être lu même sur mobile*/
+    overflow-x: auto;
+}
+
+
+
+
+
+/* PARTIE FORMULAIRE */
+textarea {
+    width: 100%;
+    border-radius: 5px; /*J'arrondis la bordure de ma textarea*/
+    font-size: 1.2em;
+    border-color: #214567;
+}
+
+
+.button {
+    padding: 15px 60px; /* Je crée de l'espace dans mon bouton avec des marges intérieurs */
+    border: 0px;
+    background-color: rgba(163, 203, 77, .9);
+    color: #214567;
+    font-size: 1.1em;
+    border-radius: 5px;
+    margin: 0 15px 0 0;
+}
+
+.button:hover{
+    background-color: #214567;
+    color: rgba(163, 203, 77, .9);
+    transform: scale(1.05); /* Je modifie le "zoom", de mon .button */
+    transition: 0.1s ease-in; /*J'applique un effet de transition au moment où ma pseudo classer :hover est active*/
+}
+
+.alignCenterClass{
+    text-align: center; /*Je centre le contenu qui se trouve dans ma classe .alignCenterClass*/
+}
+
+.fileInput{
+    display: block; /*Je fais passer à la ligne mon .fileInput*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
